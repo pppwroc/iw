@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 INTELIGENCJI – SZYBKI PRZEWODNIK DLA RODZICÓW</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .header-subtitle {
+            margin-top: 20px;
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            border-left: 5px solid #667eea;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .intro-section p {
+            margin: 15px 0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .intelligence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .intelligence-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+            cursor: pointer;
+        }
+
+        .intelligence-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            padding: 30px 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .card-subtitle {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .card-content {
+            padding: 30px 25px;
+        }
+
+        .card-content h4 {
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .characteristic-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .characteristic-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .characteristic-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .advice-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid;
+        }
+
+        .advice-box p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .advice-box strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        /* Kolory dla każdej inteligencji */
+        .linguistic .card-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .linguistic .intelligence-card { border-top-color: #667eea; }
+        .linguistic .advice-box { border-left-color: #667eea; background: rgba(102, 126, 234, 0.05); }
+
+        .logical .card-header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .logical .intelligence-card { border-top-color: #f5576c; }
+        .logical .advice-box { border-left-color: #f5576c; background: rgba(245, 87, 108, 0.05); }
+
+        .visual .card-header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .visual .intelligence-card { border-top-color: #00f2fe; }
+        .visual .advice-box { border-left-color: #00f2fe; background: rgba(0, 242, 254, 0.05); }
+
+        .kinesthetic .card-header { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .kinesthetic .intelligence-card { border-top-color: #38f9d7; }
+        .kinesthetic .advice-box { border-left-color: #38f9d7; background: rgba(56, 249, 215, 0.05); }
+
+        .musical .card-header { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .musical .intelligence-card { border-top-color: #fee140; }
+        .musical .advice-box { border-left-color: #fee140; background: rgba(254, 225, 64, 0.05); }
+
+        .naturalist .card-header { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .naturalist .intelligence-card { border-top-color: #330867; }
+        .naturalist .advice-box { border-left-color: #330867; background: rgba(51, 8, 103, 0.05); }
+
+        .interpersonal .card-header { background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); }
+        .interpersonal .intelligence-card { border-top-color: #ff6a88; }
+        .interpersonal .advice-box { border-left-color: #ff6a88; background: rgba(255, 106, 136, 0.05); }
+
+        .intrapersonal .card-header { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .intrapersonal .intelligence-card { border-top-color: #fed6e3; }
+        .intrapersonal .advice-box { border-left-color: #fed6e3; background: rgba(254, 214, 227, 0.05); }
+
+        .tips-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+
+        .tips-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tip-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tip-item h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .tip-item p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #f5f5f5;
+            padding: 50px 40px;
+            text-align: center;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+
+        .footer h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            background: #fff9e6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1.05em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .intelligence-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .print-button {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
+
+            .intro-section {
+                padding: 25px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .intelligence-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Drukuj</button>
+
+    <div class="container">
+        <header>
+            <h1>📚 8 INTELIGENCJI</h1>
+            <p>SZYBKI PRZEWODNIK DLA RODZICÓW</p>
+            <div class="header-subtitle">
+                Odkryj mocne strony swojego dziecka i wspieraj je w jego naturalnym stylu uczenia się
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- SEKCJA WPROWADZAJĄCA -->
+            <div class="intro-section">
+                <h2>🎯 Dlaczego warto znać 8 inteligencji?</h2>
+                <p>
+                    Każde dziecko jest <span class="highlight-text">inteligentne na swój własny sposób</span>. Tradycyjna szkoła 
+                    uczy głównie poprzez słowa i liczby, ale to tylko dwa ze OŚMIU typów inteligencji.
+                </p>
+                <p>
+                    Jeśli Twoje dziecko ma trudności w szkole, niekoniecznie oznacza to, że jest mniej zdolne. 
+                    Prawdopodobnie ma inny <span class="highlight-text">styl uczenia się</span> niż tradycyjny.
+                </p>
+                <p>
+                    <strong>Ten przewodnik pomoże Ci:</strong>
+                </p>
+                <ul style="margin: 15px 0 15px 30px;">
+                    <li>Zidentyfikować mocne strony Twojego dziecka</li>
+                    <li>Zrozumieć, jak ono się uczy najlepiej</li>
+                    <li>Wspierać je poprzez jego naturalne talenty</li>
+                    <li>Budować jego pewność siebie</li>
+                </ul>
+            </div>
+
+            <!-- 8 INTELIGENCJI -->
+            <div class="intelligence-grid">
+                <!-- 1. LINGWISTYCZNA -->
+                <div class="linguistic">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">📚</div>
+                            <div class="card-title">Inteligencja Lingwistyczna</div>
+                            <div class="card-subtitle">"MISTRZ SŁÓW"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi czytać książki i opowiadania</li>
+                                <li>Dobrze pamięta słowa piosenek i wiersze</li>
+                                <li>Łatwo się mówi i wyraża swoje myśli</li>
+                                <li>Lubi pisać, tworzyć komiksy, historyjki</li>
+                                <li>Dobrze mówi, argumentuje, przekonuje</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Elokwencja na lekcjach</li>
+                                <li>Doskonała pamięć słów i tekstów</li>
+                                <li>Talent do opowiadania i pisania</li>
+                                <li>Umiejętność przekonywania innych</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Czytajcie razem każdego dnia</p>
+                                <p>✓ Dyskutujcie o przeczytanych książkach</p>
+                                <p>✓ Zachęcajcie do pisania pamiętnika</p>
+                                <p>✓ Słuchajcie audiobooków w samochodzie</p>
+                                <p>✓ Grajcie w słowne gry i quizy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. LOGICZNO-MATEMATYCZNA -->
+                <div class="logical">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🔢</div>
+                            <div class="card-title">Inteligencja Logiczno-Matematyczna</div>
+                            <div class="card-subtitle">"DETEKTYW I NAUKOWIEC"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi rozwiązywać zagadki i łamigłówki</li>
+                                <li>Dobrze radzi sobie z zadaniami matematycznymi i logicznymi</li>
+                                <li>Stale pyta "dlaczego?" i szuka przyczyn</li>
+                                <li>Logicznie myśli i planuje</li>
+                                <li>Interesuje się eksperymentami</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Analityczne myślenie</li>
+                                <li>Zdolność do rozwiązywania problemów</li>
+                                <li>Precyzja i dokładność</li>
+                                <li>Umiejętność kategoryzowania i klasyfikacji</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Proponujcie gry logiczne i puzzle</p>
+                                <p>✓ Przeprowadzajcie proste eksperymenty</p>
+                                <p>✓ Grajcie w szachy, warcaby, Sudoku</p>
+                                <p>✓ Dyskutujcie o przyczynach i skutkach</p>
+                                <p>✓ Ucząc, wyjaśniajcie logikę i zasady</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. WIZUALNO-PRZESTRZENNA -->
+                <div class="visual">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🎨</div>
+                            <div class="card-title">Inteligencja Wizualno-Przestrzenna</div>
+                            <div class="card-subtitle">"ARTYSTA I PROJEKTANT"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi rysować, malować, projektować</li>
+                                <li>Dobrze rozumie mapy, plany i schematy</li>
+                                <li>Ma dobre wyczucie kierunków (orientacja)</li>
+                                <li>Widzi perspektywę i kolory</li>
+                                <li>Lubi oglądać filmy i zdjęcia</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Kreatywność i wyobraźnia</li>
+                                <li>Zdolność do wizualizacji</li>
+                                <li>Talent artystyczny</li>
+                                <li>Dobra orientacja przestrzenna</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Rysujcie i malujcie razem</p>
+                                <p>✓ Twórzcie mapy myśli do lekcji</p>
+                                <p>✓ Budujcie z klocków i układajcie puzzle</p>
+                                <p>✓ Oglądajcie filmy i ilustrowane książki</p>
+                                <p>✓ Wykorzystujcie diagramy do nauki</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. KINESTETYCZNA -->
+                <div class="kinesthetic">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🏃</div>
+                            <div class="card-title">Inteligencja Kinestetyczna</div>
+                            <div class="card-subtitle">"BUDOWNICZY I SPORTOWIEC"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi sport, taniec i gry ruchowe</li>
+                                <li>Sprawne manualnie, lubi majsterkować</li>
+                                <li>Trudno mu usiedzieć w miejscu</li>
+                                <li>Ma dobrą koordynację ruchową</li>
+                                <li>Uczy się poprzez doświadczanie</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Doskonała motoryka</li>
+                                <li>Umiejętności praktyczne</li>
+                                <li>Wytrzymałość fizyczna</li>
+                                <li>Zdolność do szybkiego działania</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Zachęcajcie do sportów i ruchu</p>
+                                <p>✓ Majsterkujcie razem (modelarstwo)</p>
+                                <p>✓ Uczcie się poprzez działanie, nie słuchanie</p>
+                                <p>✓ Zróbcie przerwy ruchowe podczas wykonywania zadań</p>
+                                <p>✓ Wykorzystujcie taniec i gry ruchowe do nauki</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. MUZYCZNO-RYTMICZNA -->
+                <div class="musical">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🎵</div>
+                            <div class="card-title">Inteligencja Muzyczno-Rytmiczna</div>
+                            <div class="card-subtitle">"MUZYK I RYTMISTA"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi śpiewać i słuchać muzyki</li>
+                                <li>Wyczuwa rytm i tempo</li>
+                                <li>Pamięta melodie piosenek</li>
+                                <li>Chętnie gra na instrumentach</li>
+                                <li>Czuje muzykę i rytm w ciele</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Słuch muzyczny</li>
+                                <li>Zdolność do wyczuwania rytmu</li>
+                                <li>Talent do śpiewania</li>
+                                <li>Pamięć do melodii</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Słuchajcie razem dobrej muzyki</p>
+                                <p>✓ Zaproponujcie naukę instrumentu</p>
+                                <p>✓ Śpiewajcie piosenki do nauki (np. tabliczki mnożenia)</p>
+                                <p>✓ Grajcie w gry muzyczne</p>
+                                <p>✓ Uczcie się do rytmu i melodii</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. NATURALISTYCZNA -->
+                <div class="naturalist">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🌿</div>
+                            <div class="card-title">Inteligencja Naturalistyczna</div>
+                            <div class="card-subtitle">"ODKRYWCA I OBSERWATOR"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi przebywać w naturze</li>
+                                <li>Interesuję się zwierzętami i roślinami</li>
+                                <li>Obserwuje detale przyrody</li>
+                                <li>Interesuje go ekologia i ochrona środowiska</li>
+                                <li>Lubi kolekcjonować rzeczy z natury</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Zdolność obserwacji otoczenia</li>
+                                <li>Miłość do przyrody</li>
+                                <li>Umiejętność kategoryzacji</li>
+                                <li>Zainteresowanie naukami przyrodniczymi</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Spędzajcie czas na łonie natury</p>
+                                <p>✓ Obserwujcie zwierzęta i rośliny</p>
+                                <p>✓ Prowadzcie obserwacje i notatki</p>
+                                <p>✓ Hodujcie rośliny lub zwierzęta</p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. INTERPERSONALNA -->
+                <div class="interpersonal">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">👥</div>
+                            <div class="card-title">Inteligencja Interpersonalna</div>
+                            <div class="card-subtitle">"PRZYJACIEL I LIDER"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi pracować w grupie</li>
+                                <li>Ma wielu przyjaciół</li>
+                                <li>Dobrze słucha i rozumie emocje</li>
+                                <li>Jest dobrym liderem</li>
+                                <li>Lubi pracować z innymi ludźmi</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Empatia i wrażliwość</li>
+                                <li>Umiejętności społeczne</li>
+                                <li>Zdolność do współpracy</li>
+                                <li>Zdolność do przywództwa</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Zachęcajcie do pracy w grupach</p>
+                                <p>✓ Uczcie się współpracy i negocjacji</p>
+                                <p>✓ Zaproponujcie projekty grupowe</p>
+                                <p>✓ Rozwijajcie umiejętności społeczne</p>
+                                <p>✓ Uczcie empatii i słuchania</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. INTRAPERSONALNA -->
+                <div class="intrapersonal">
+                    <div class="intelligence-card">
+                        <div class="card-header">
+                            <div class="card-icon">🪞</div>
+                            <div class="card-title">Inteligencja Intrapersonalna</div>
+                            <div class="card-subtitle">"MYŚLICIEL I REFLEKSYJNY"</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>👁️ Jak je poznać:</h4>
+                            <ul class="characteristic-list">
+                                <li>Lubi pracować samodzielnie</li>
+                                <li>Dobrze zna swoje możliwości</li>
+                                <li>Lubi rozmyślać i jest refleksyjne</li>
+                                <li>Zna swoje cele i zainteresowania</li>
+                                <li>Lubi mieć własną przestrzeń</li>
+                            </ul>
+
+                            <h4>🏆 Mocne strony:</h4>
+                            <ul class="characteristic-list">
+                                <li>Samoświadomość</li>
+                                <li>Samodzielność</li>
+                                <li>Refleksyjność</li>
+                                <li>Motywacja wewnętrzna</li>
+                            </ul>
+
+                            <div class="advice-box">
+                                <strong>💡 Jak wspierać w domu:</strong>
+                                <p>✓ Dawajcie przestrzeń do samodzielnej pracy</p>
+                                <p>✓ Zachęcajcie do prowadzenia pamiętnika</p>
+                                <p>✓ Pozwalajcie na refleksję i samodzielne myślenie</p>
+                                <p>✓ Wspierajcie cele osobiste dziecka</p>
+                                <p>✓ Uczcie samooceny i planowania</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEKCJA PORAD -->
+            <div class="tips-section">
+                <h2>🎯 10 Praktycznych Porad Dla Każdego Rodzica</h2>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <h4>1️⃣ Odkryj Silne Strony</h4>
+                        <p>Zamiast skupiać się na słabościach, odkrywaj i rozwijaj naturalne talenty dziecka.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>2️⃣ Obserwuj Zachowanie</h4>
+                        <p>Patrz jak dziecko bawi się, uczy się, spędza wolny czas. To wskazuje jego preferowany styl nauki.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>3️⃣ Mów Pozytywnie</h4>
+                        <p>Zamiast "Jesteś złe w matematyce" mów "Jesteś artystą! Pouczmy się matematyki poprzez obrazy".</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>4️⃣ Dostosuj Naukę</h4>
+                        <p>Jeśli dziecko jest ma profil wizualno-przestrzenny, ucz poprzez zdjęcia, mapy myśli i diagramy. Jeśli kinestyczne - poprzez ruch.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>5️⃣ Nie Porównuj</h4>
+                        <p>Każde dziecko ma inny profil inteligencji. To co trudne dla jednego, może być łatwe dla drugiego.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>6️⃣ Buduj Pewność Siebie</h4>
+                        <p>Chwal za wysiłek, a nie tylko za wynik. "Widzę że się starasz!" To buduje pewność siebie.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>7️⃣ Wspieraj Pasjach</h4>
+                        <p>Jeśli dziecko uwielbia muzykę - niech gra. Talenty rozwijają się poprzez swoje pasje.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>8️⃣ Komunikuj Się Ze Szkołą</h4>
+                        <p>Współpraca szkoły i domu jest najskuteczniejsza.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>9️⃣ Unikaj Presji</h4>
+                        <p>Nauczenie poprzez silne strony zmniejsza stres.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <h4>🔟 Cierpliwość i Miłość</h4>
+                        <p>Każde dziecko rozwija się w swoim tempie. Cierpliwość i miłość to najlepsze narzędzia wsparcia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PODSUMOWANIE -->
+            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); padding: 40px; border-radius: 15px; border-left: 5px solid #667eea; margin: 60px 0;">
+                <h2 style="color: #667eea; margin-bottom: 20px;">✨ Pamiętaj:</h2>
+                <p style="font-size: 1.15em; line-height: 1.8; margin: 15px 0;">
+                    <strong>Każde dziecko jest inteligentne na swój własny sposób.</strong> 
+                    Jeśli Twoje dziecko ma trudności w szkole, to nie oznacza, że nie ma zdolności. 
+                    Prawdopodobnie ma inny sposób uczenia się.
+                </p>
+                <p style="font-size: 1.15em; line-height: 1.8; margin: 15px 0;">
+                    Twoim zadaniem jako rodzica jest <span class="highlight-text">odkryć</span> jego naturalne talenty 
+                    i wspierać go poprzez jego mocne strony. Dziecko, które uczy się poprzez to co lubi, 
+                    będzie bardziej zmotywowane, pewne siebie i szczęśliwe.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>🌟 Zacznij Dzisiaj!</h2>
+            <p>Popatrz na swoje dziecko z nową perspektywą.</p>
+            <p>Odkryj które z 8 inteligencji są jego supermocami.</p>
+            <p>A następnie wspieraj je poprzez to, co ono robi najlepiej.</p>
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-style: italic; color: #999;">
+                <em>8 Inteligencji – Szybki Przewodnik Dla Rodziców</em><br>
+                <em>Opracowano: A. Stopińska PPP9</em><br>
+                <em>Oparty na teorii Inteligencji Wielorakich - Howard Gardner</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Dodaj interaktywność do kart
+        document.querySelectorAll('.intelligence-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transition = 'all 0.3s ease';
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        // Smooth scroll dla elementów
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
