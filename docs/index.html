@@ -1,159 +1,197 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Inteligencji Wielorakich - Strona Główna</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
             min-height: 100vh;
         }
-        .container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            background: white; 
-            border-radius: 20px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.25); 
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
             overflow: hidden;
         }
-        header { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            color: white; 
-            padding: 60px 40px; 
-            text-align: center; 
-        }
-        header h1 { 
-            font-size: 2.8em; 
-            margin-bottom: 15px; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
-        }
-        header p { 
-            font-size: 1.3em; 
-            opacity: 0.95; 
-            font-weight: 300; 
-        }
-        .content { 
-            padding: 60px 40px; 
-        }
-        .intro-section { 
-            background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); 
-            padding: 40px; 
-            border-radius: 15px; 
-            margin-bottom: 50px; 
-            border-left: 5px solid #667eea; 
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
             text-align: center;
         }
-        .intro-section h2 { 
-            color: #667eea; 
-            margin-bottom: 20px; 
-            font-size: 1.8em; 
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        .intro-section p { 
-            font-size: 1.1em; 
-            margin: 15px 0; 
-            line-height: 1.8; 
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
         }
-        .main-actions { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            margin-bottom: 60px; 
+
+        .content {
+            padding: 60px 40px;
         }
-        .action-card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            text-align: center; 
-            transition: all 0.3s ease; 
-            border-top: 5px solid #32b8c6; 
+
+        .intro-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            border-left: 5px solid #667eea;
+            text-align: center;
         }
-        .action-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
-        .action-card h3 { 
-            color: #32b8c6; 
-            margin-bottom: 20px; 
-            font-size: 1.5em; 
+
+        .intro-section p {
+            font-size: 1.1em;
+            margin: 15px 0;
+            line-height: 1.8;
         }
-        .btn { 
-            display: inline-block; 
-            padding: 15px 30px; 
-            background: linear-gradient(135deg, #32b8c6 0%, #2da6ae 100%); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 10px; 
-            font-size: 1.1em; 
-            font-weight: 600; 
-            transition: all 0.3s ease; 
+
+        .main-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
         }
-        .btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 10px 25px rgba(50,184,198,0.4); 
+
+        .action-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 5px solid #32b8c6;
         }
-        .downloads-section { 
-            background: #f9f9f9; 
-            padding: 40px; 
-            border-radius: 15px; 
-            border-left: 5px solid #38f9d7; 
+
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
-        .downloads-section h2 { 
-            color: #38f9d7; 
-            margin-bottom: 30px; 
-            font-size: 1.8em; 
+
+        .action-card h3 {
+            color: #32b8c6;
+            margin-bottom: 20px;
+            font-size: 1.5em;
         }
-        .download-list { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #32b8c6 0%, #2da6ae 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        .download-item { 
-            background: white; 
-            padding: 25px; 
-            border-radius: 10px; 
-            border-left: 4px solid #e0e0e0; 
-            transition: all 0.3s ease; 
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(50, 184, 198, 0.4);
         }
-        .download-item:hover { 
-            border-left-color: #32b8c6; 
-            transform: translateX(5px); 
+
+        .downloads-section {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid #38f9d7;
         }
-        .download-item strong { 
-            display: block; 
-            font-size: 1.1em; 
-            margin-bottom: 10px; 
-            color: #333; 
+
+        .downloads-section h2 {
+            color: #38f9d7;
+            margin-bottom: 30px;
+            font-size: 1.8em;
         }
-        .download-item .btn { 
-            font-size: 1em; 
-            padding: 12px 20px; 
+
+        .download-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
+
+        .download-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            border-left-color: #32b8c6;
+            transform: translateX(5px);
+        }
+
+        .download-item strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .download-item .btn {
+            font-size: 1em;
+            padding: 12px 20px;
+        }
+
         @media (max-width: 768px) {
-            .main-actions { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.2em; }
-            .content { padding: 40px 20px; }
+            .main-actions {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>Test Inteligencji Wielorakich</h1>
             <p>Odkryj naturalne talenty i mocne strony poprzez teorię 8 inteligencji Howarda Gardnera</p>
         </header>
-        
+
         <div class="content">
             <!-- Wprowadzenie -->
             <div class="intro-section">
                 <h2>Witaj w świecie Inteligencji Wielorakich!</h2>
-                <p>Każde dziecko jest <strong>inteligentne na swój własny sposób</strong>. Ten test pomoże odkryć jego naturalne talenty i preferowany styl uczenia się.</p>
+                <p>Każde dziecko jest <strong>inteligentne na swój własny sposób</strong>. Ten test pomoże odkryć jego
+                    naturalne talenty i preferowany styl uczenia się.</p>
             </div>
 
             <!-- Główne akcje -->
@@ -189,9 +227,20 @@
                         <p>Arkusz do rozmowy z rodzicem i obserwacji dziecka</p>
                         <a href="wywiad-obserwacja.docx" class="btn" download>Pobierz Arkusz</a>
                     </div>
+                    <div class="download-item">
+                        <strong>Zalecenia do pracy dla Nauczycieli</strong>
+                        <p>
+                            Praktyczne wskazówki do pracy dydaktycznej i wspierania mocnych stron uczniów w oparciu o
+                            inteligencje wielorakie.
+                        </p>
+                        <a href="zalecenia-do-pracy-dla-nauczycieli.docx" class="btn" download>
+                            Pobierz Zalecenia
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Inteligencji - Przewodnik dla Rodziców</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto 20px;
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide.title-slide {
+            background: white;
+            color: #000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 40px;
+            border: 2px solid #000;
+        }
+
+        .slide.content-slide {
+            background: white;
+            color: #000;
+            flex-direction: column;
+            padding: 40px 50px;
+            border-bottom: 1px solid #000;
+        }
+
+        .slide.dark-slide {
+            background: white;
+            color: #000;
+            flex-direction: column;
+            padding: 40px 50px;
+            border: 1px solid #000;
+        }
+
+        .slide.end-slide {
+            background: white;
+            color: #000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 40px;
+            border: 2px solid #000;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .subtitle-small {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .icon-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-left: 30px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .two-col-item {
+            flex: 1;
+        }
+
+        .highlight {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            border: 1px solid #666;
+        }
+
+        .color-linguistic { color: #333; }
+        .color-logical { color: #333; }
+        .color-visual { color: #333; }
+        .color-kinesthetic { color: #333; }
+        .color-musical { color: #333; }
+        .color-naturalist { color: #333; }
+        .color-interpersonal { color: #333; }
+        .color-intrapersonal { color: #333; }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: white;
+            border: 2px solid #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .slide {
+                margin: 0;
+                page-break-after: always;
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Drukuj</button>
+
+    <!-- SLIDE 1: TITLE -->
+    <section class="slide title-slide">
+        <div class="icon-large">📚</div>
+        <h1 style="color: #000; border-bottom: 3px solid #000; padding-bottom: 20px;">8 INTELIGENCJI</h1>
+        <p class="subtitle" style="color: #000;">SZYBKI PRZEWODNIK DLA RODZICÓW</p>
+        <p class="subtitle-small" style="color: #333;">Odkryj mocne strony swojego dziecka</p>
+    </section>
+
+    <!-- SLIDE 2: INTRODUCTION -->
+    <section class="slide content-slide">
+        <h2 style="color: #000; border-bottom: 2px solid #000; padding-bottom: 15px;">Dlaczego warto znać 8 inteligencji?</h2>
+        <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">Każde dziecko jest <span class="highlight">inteligentne na swój własny sposób</span>. Tradycyjna szkoła uczy głównie poprzez słowa i liczby, ale to tylko dwa ze OŚMIU typów inteligencji.</p>
+        <ul style="font-size: 1rem;">
+            <li>Zidentyfikować mocne strony Twojego dziecka</li>
+            <li>Zrozumieć, jak ono się uczy najlepiej</li>
+            <li>Wspierać je poprzez jego naturalne talenty</li>
+            <li>Budować jego pewność siebie</li>
+        </ul>
+    </section>
+
+    <!-- SLIDE 3: LINGUISTIC -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">📚 Inteligencja Lingwistyczna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„MISTRZ SŁÓW"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi czytać książki</li>
+                    <li>Pamięta słowa piosenek</li>
+                    <li>Łatwo się wypowiada</li>
+                    <li>Lubi pisać i tworzyć</li>
+                    <li>Bogaty zasób słownictwa</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Czytajcie razem każdego dnia</li>
+                    <li>Dyskutujcie o przeczytanych książkach</li>
+                    <li>Zachęcajcie do pisania pamiętnika</li>
+                    <li>Słuchajcie audiobooków</li>
+                    <li>Grajcie w słowne gry</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: LOGICAL -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🔢 Inteligencja Logiczno-Matematyczna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„DETEKTYW I NAUKOWIEC"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi rozwiązywać zagadki</li>
+                    <li>Dobrze w matematyce</li>
+                    <li>Stale pyta „dlaczego?"</li>
+                    <li>Logicznie myśli</li>
+                    <li>Interesuje go eksperymentowanie</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Proponujcie gry logiczne</li>
+                    <li>Przeprowadzajcie eksperymenty</li>
+                    <li>Grajcie w szachy i Sudoku</li>
+                    <li>Uczcie się programowania</li>
+                    <li>Dyskutujcie o przyczynach</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: VISUAL -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🎨 Inteligencja Wizualno-Przestrzenna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„ARTYSTA I PROJEKTANT"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi rysować i malować</li>
+                    <li>Rozumie mapy i schematy</li>
+                    <li>Dobre wyczucie kierunków</li>
+                    <li>Widzi perspektywę</li>
+                    <li>Lubi filmy i zdjęcia</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Rysujcie i malujcie razem</li>
+                    <li>Twórzcie mapy myśli</li>
+                    <li>Budujcie z klocków</li>
+                    <li>Uczcie się modelowania 3D</li>
+                    <li>Używajcie diagramów do nauki</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: KINESTHETIC -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🏃 Inteligencja Kinestetyczna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„BUDOWNICZY I SPORTOWIEC"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi sport i taniec</li>
+                    <li>Sprawne manualnie</li>
+                    <li>Trudno mu usiedzieć</li>
+                    <li>Dobra koordynacja</li>
+                    <li>Uczy się przez doświadczenie</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Zachęcajcie do sportów</li>
+                    <li>Majsterkujcie razem</li>
+                    <li>Uczcie poprzez działanie</li>
+                    <li>Zróbcie przerwy ruchowe</li>
+                    <li>Wykorzystujcie taniec do nauki</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 7: MUSICAL -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🎵 Inteligencja Muzyczno-Rytmiczna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„MUZYK I KOMPOZYTOR"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi śpiewać</li>
+                    <li>Wyczuwa rytm i tempo</li>
+                    <li>Pamięta melodie</li>
+                    <li>Chętnie gra na instrumentach</li>
+                    <li>Czuje muzykę w ciele</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Słuchajcie muzyki razem</li>
+                    <li>Zaproponujcie instrument</li>
+                    <li>Śpiewajcie do nauki</li>
+                    <li>Grajcie w gry muzyczne</li>
+                    <li>Muzykę w tle podczas nauki</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: NATURALIST -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🌿 Inteligencja Naturalistyczna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„ODKRYWCA I OBSERWATOR"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi przebywać w naturze</li>
+                    <li>Interesuje się zwierzętami</li>
+                    <li>Obserwuje detale przyrody</li>
+                    <li>Interesuje go ekologia</li>
+                    <li>Lubi kolekcjonować rzeczy</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Spędzajcie czas w naturze</li>
+                    <li>Obserwujcie zwierzęta</li>
+                    <li>Prowadzcie notatki</li>
+                    <li>Hodujcie rośliny</li>
+                    <li>Czytajcie o przyrodzie</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 9: INTERPERSONAL -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">👥 Inteligencja Interpersonalna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„PRZYJACIEL I LIDER"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi pracować w grupie</li>
+                    <li>Ma wielu przyjaciół</li>
+                    <li>Dobrze słucha emocji</li>
+                    <li>Jest dobrym liderem</li>
+                    <li>Lubi pracować z ludźmi</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Zachęcajcie do projektów grupowych</li>
+                    <li>Uczcie współpracy</li>
+                    <li>Rozwijajcie umiejętności społeczne</li>
+                    <li>Uczcie empatii</li>
+                    <li>Wspierajcie przyjaźnie</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 10: INTRAPERSONAL -->
+    <section class="slide content-slide">
+        <h2 style="color: #000;">🪞 Inteligencja Intrapersonalna</h2>
+        <p class="card-subtitle" style="font-size: 1.1rem; margin-bottom: 25px;">„MYŚLICIEL I REFLEKSYJNY OBSERWATOR"</p>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Jak je poznać:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Lubi pracować samodzielnie</li>
+                    <li>Zna swoje możliwości</li>
+                    <li>Lubi rozmyślać</li>
+                    <li>Zna swoje cele</li>
+                    <li>Lubi mieć własną przestrzeń</li>
+                </ul>
+            </div>
+            <div class="two-col-item">
+                <h3 style="font-size: 1.2rem;">Wspieraj w domu:</h3>
+                <ul style="font-size: 0.95rem;">
+                    <li>Dawajcie przestrzeń do pracy</li>
+                    <li>Zachęcajcie do pamiętnika</li>
+                    <li>Pozwalajcie na refleksję</li>
+                    <li>Wspierajcie cele osobiste</li>
+                    <li>Uczcie samooceny</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 11: TIPS PART 1 -->
+    <section class="slide dark-slide">
+        <h2 style="color: #000; text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px;">10 Praktycznych Porad – Część 1</h2>
+        <ul style="font-size: 1rem; margin-top: 30px;">
+            <li><strong style="color: #333;">Odkryj Silne Strony</strong> – Zamiast skupiać się na słabościach, rozwijaj naturalne talenty</li>
+            <li><strong style="color: #333;">Obserwuj Zachowanie</strong> – Patrz jak dziecko się uczy i bawi. To wskazuje preferowany styl</li>
+            <li><strong style="color: #333;">Mów Pozytywnie</strong> – Zamiast „złe w matematyce" mów „jesteś artystą!"</li>
+            <li><strong style="color: #333;">Dostosuj Naukę</strong> – Ucz poprzez mocne strony dziecka</li>
+            <li><strong style="color: #333;">Nie Porównuj</strong> – Każde dziecko ma inny profil inteligencji</li>
+        </ul>
+    </section>
+
+    <!-- SLIDE 12: TIPS PART 2 -->
+    <section class="slide dark-slide">
+        <h2 style="color: #000; text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px;">10 Praktycznych Porad – Część 2</h2>
+        <ul style="font-size: 1rem; margin-top: 30px;">
+            <li><strong style="color: #333;">Buduj Pewność Siebie</strong> – Chwal za wysiłek, nie tylko za wynik</li>
+            <li><strong style="color: #333;">Wspieraj Pasje</strong> – Talenty rozwijają się poprzez pasje</li>
+            <li><strong style="color: #333;">Komunikuj Ze Szkołą</strong> – Współpraca szkoły i domu jest najskuteczniejsza</li>
+            <li><strong style="color: #333;">Unikaj Presji</strong> – Nauczenie poprzez silne strony zmniejsza stres</li>
+            <li><strong style="color: #333;">Cierpliwość i Miłość</strong> – Każde dziecko rozwija się w swoim tempie</li>
+        </ul>
+    </section>
+
+    <!-- SLIDE 13: SUMMARY -->
+    <section class="slide content-slide">
+        <h2 style="color: #000; border-bottom: 2px solid #000; padding-bottom: 15px;">✨ Pamiętaj</h2>
+        <p style="font-size: 1.2rem; line-height: 1.9; margin: 30px 0;">
+            <strong>Każde dziecko jest inteligentne na swój własny sposób.</strong>
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">
+            Jeśli Twoje dziecko ma trudności w szkole, to nie oznacza braku zdolności. Prawdopodobnie ma inny sposób uczenia się.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">
+            Twoim zadaniem jest <span class="highlight">odkryć</span> jego naturalne talenty i wspierać go poprzez mocne strony.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">
+            Dziecko, które uczy się poprzez to co lubi, będzie bardziej zmotywowane, pewne siebie i szczęśliwe.
+        </p>
+    </section>
+
+    <!-- SLIDE 14: END -->
+    <section class="slide end-slide">
+        <div class="icon-large">🌟</div>
+        <h1 style="color: #000; border: 3px solid #000; padding: 20px; margin-bottom: 20px;">Zacznij Dzisiaj!</h1>
+        <p class="subtitle" style="opacity: 1; color: #000;">Patrz na swoje dziecko z nową perspektywą</p>
+        <p class="subtitle" style="opacity: 1; color: #000;">Odkryj które z 8 inteligencji są jego supermocami</p>
+        <p style="margin-top: 40px; font-size: 0.95rem; opacity: 0.85;">
+            Opracowano przez: A. Stopińska, PPP9<br>
+            Oparty na teorii Inteligencji Wielorakich - Howard Gardner
+        </p>
+    </section>
+
+</body>
+</html>
